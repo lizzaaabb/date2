@@ -2,6 +2,8 @@ const yesBtn = document.getElementById("yes")
 const noBtn = document.getElementById("no")
 const okBtn = document.getElementById("ok")
 const yesContent = document.getElementById("yes-container")
+let noClickCount = 0;
+const visuals = document.querySelector(".visuals")
 
 noBtn.addEventListener("click", ()=>{
    
@@ -24,14 +26,27 @@ okBtn.addEventListener("click", () => {
 
 
 noBtn.addEventListener("click", () => {
-    // Make the no button float randomly around the screen
-    const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth); // Random X position within viewport
-    const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight); // Random Y position within viewport
-    
+    // Increase click count each time No button is clicked
+    noClickCount++;
+
+    // Get the dimensions of the button
+    const buttonWidth = noBtn.offsetWidth;
+    const buttonHeight = noBtn.offsetHeight;
+
+    // Calculate random positions while ensuring the button stays within the viewport
+    const randomX = Math.random() * (window.innerWidth - buttonWidth);
+    const randomY = Math.random() * (window.innerHeight - buttonHeight);
+
+    // Set the position of the No button
     noBtn.style.position = "absolute"; // Ensure the button is absolutely positioned
     noBtn.style.left = `${randomX}px`; // Set random X position
     noBtn.style.top = `${randomY}px`; // Set random Y position
 
     // Optional: Add a little animation for the move
     noBtn.style.transition = "left 0.5s ease, top 0.5s ease"; // Smooth transition effect
+
+    // Check if No button has been clicked 3 times
+    if (noClickCount === 3) {
+        visuals.style.display = "flex"; // Show the visuals element
+    }
 });

@@ -57,17 +57,36 @@ html, body {
 }
 
 .btn {
-    background-color: #7d7d7d; /* Gray stone-like color */
-    color: #f0f0f0; /* Light text color */
+    background-color: #7d7d7d; 
+    color: #f0f0f0; 
     padding: 10px 20px;
-    border: 2px solid #3c3c3c; /* Darker gray for a 3D border effect */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds a 3D shadow effect */
+    border: 2px solid #3c3c3c; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
     cursor: pointer;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, left 0.5s ease, top 0.5s ease; 
     font-size: 2rem;
     border-color: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    position: absolute; /* Set initial absolute positioning */
+    left: 50%; /* Initial starting position */
+    top: 90%; /* Initial starting position */
+    transform: translate(-50%, -50%); /* Center it on the screen */
 }
+#yes {
+    position: absolute;
+    left: 45%; /* Adjust as needed */
+    top: 90%; /* Adjust as needed */
+    transform: translate(-50%, -50%); /* Center this button */
+}
+
+#no {
+    position: absolute;
+    left: 55%; /* Adjust as needed */
+    top: 90%; /* Adjust as needed */
+    transform: translate(-50%, -50%); /* Center this button */
+}
+
+
 
 .btn:hover {
     background-color: #5c5a5a;
@@ -94,6 +113,7 @@ html, body {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
+    z-index: 2;
 }
 .yes-container.show {
     display: flex; /* Flex display when shown */
@@ -129,6 +149,22 @@ html, body {
 }
 .hearts {
     height: 100px;
+}
+.visual{
+    font-size: 1.7rem;
+    color: white;
+    text-shadow: 
+    -2px -2px 0 black,  
+    2px -2px 0 black,  
+    -2px 2px 0 black,  
+    2px 2px 0 black; 
+}
+.visuals{
+    display: none;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    z-index: 1;
 }
 
 @media (max-width: 390px) {
@@ -168,6 +204,29 @@ html, body {
     }
     .yes-content{
         margin-top: 40px;
+    }
+
+    .visual{
+        font-size: 1.3rem;
+    }
+    .visuals{
+        position: absolute;
+        top: 140px;
+        right: 50px;
+        
+    }
+    #yes {
+        position: absolute;
+        left: 34%; /* Adjust as needed */
+        top: 80%; /* Adjust as needed */
+        transform: translate(-50%, -50%); /* Center this button */
+    }
+    
+    #no {
+        position: absolute;
+        left: 66%; /* Adjust as needed */
+        top: 80%; /* Adjust as needed */
+        transform: translate(-50%, -50%); /* Center this button */
     }
 
 }
