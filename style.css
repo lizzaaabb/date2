@@ -218,14 +218,14 @@ html, body {
     #yes {
         position: absolute;
         left: 34%; /* Adjust as needed */
-        top: 80%; /* Adjust as needed */
+        top: 90%; /* Adjust as needed */
         transform: translate(-50%, -50%); /* Center this button */
     }
     
     #no {
         position: absolute;
         left: 66%; /* Adjust as needed */
-        top: 80%; /* Adjust as needed */
+        top: 90%; /* Adjust as needed */
         transform: translate(-50%, -50%); /* Center this button */
     }
 
